@@ -1,10 +1,14 @@
-<%= link_to "Decks", "/decks" %>
+<%= link_to "Decks", decks_path %>
 
 <h1><%= @deck.name %></h1>
 
-<%= link_to "Edit", "/decks/#{@deck.id}/edit" %>
-<%= link_to "Delete", "/decks/#{@deck.id}", :method => "delete", :data => {:confirm => "Are you sure?"} %>
+<%= link_to "Edit", edit_deck_path(@deck) %>
+<%= link_to "Delete", deck_path(@deck), :method => "delete", :data => {:confirm => "Are you sure?"} %>
+
+Created at <%= @deck.created_at %>
 
 <ul>
-  <li>Created at <%= @deck.created_at %></li>
+<% @cards.each do |card| %>
+  <li><%= link_to card.front, [card.deck, card] %></li>
+<% end %>
 </ul>
