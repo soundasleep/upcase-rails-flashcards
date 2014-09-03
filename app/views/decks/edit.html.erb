@@ -1,0 +1,11 @@
+<h1>Edit <%= @deck.name %></h1>
+
+<%= form_for @deck do |f| %>
+  <ul>
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+  </ul>
+  <%= f.submit "Save changes" %>
+<% end %>

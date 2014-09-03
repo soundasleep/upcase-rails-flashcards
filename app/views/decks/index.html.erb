@@ -1,0 +1,12 @@
+<h1>meow</h1>
+
+<ul>
+<% @decks.each do |deck| %>
+  <li>
+    <%= link_to deck.name, "decks/#{deck.id}" %>
+    -
+    <%= link_to "edit", "decks/#{deck.id}/edit" %>
+    <%= link_to "delete", "decks/#{deck.id}", :method => "delete", :data => { :confirm => "Are you sure?" } %>
+  </li>
+<% end %>
+</ul>
